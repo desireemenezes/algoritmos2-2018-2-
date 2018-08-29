@@ -1,8 +1,8 @@
 
 print("**** CALCULO MEDIA PYTHON SYNTAX ****")
 
-n1 = raw_input("Digite a primeira nota: ")
-n2 = raw_input("Digite a segunda nota: ")
+n1 = input("Digite a primeira nota: ")
+n2 = input("Digite a segunda nota: ")
 
 media = (float(n1) + float(n2))/2
 
