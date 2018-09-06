@@ -39,7 +39,7 @@ while count < 10:
     lista.append(numero)
     print("\n")
 
-   if numero % 2 == 0:
+    if numero % 2 == 0:
         lista_pares.append(numero)
     else:
         lista_impares.append(numero)
