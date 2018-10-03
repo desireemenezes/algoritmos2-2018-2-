@@ -30,7 +30,8 @@ lista_impares = []
 count = 0
 
 
-while count < 10:
+
+while count < 5:
     numero = int(input("Digite um número:"))
     if numero == 0:
         print("ZERO É INVÁLIDO!!")
@@ -53,6 +54,7 @@ def check_maior():
         
     posicao_maior = lista.index(maior_numero)
     print("O maior numero digitado é: {}, indice:[{}]".format(maior_numero, posicao_maior))
+    return maior_numero;
 
 def check_menor():
     menor_numero = lista[0]
