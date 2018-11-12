@@ -12,7 +12,6 @@ class ListaEncadeada:
     """Esta classe representa uma lista encadeada."""
     def __init__(self): 
         self.cabeca = None
-        self.rabo = None
         self._size = 0
 
     def __repr__(self):
