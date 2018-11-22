@@ -1,21 +1,10 @@
-"""Implementa a estrutura de dados Lista Encadeada."""
 
-
-class ListaEncadeada:
-    """Implementa uma estrutura de dados do tipo Lista Encadeada."""
-
+class Deque:
+   
     class No:
-        """Implementa um No (Elo) de uma lista encadeada."""
-
+       
         def __init__(self, value):
-            """
-            Inicia um novo No, com o valor dado.
-
-            Parameters
-            ----------
-            value: O valor a ser armazenado.
-
-            """
+           
             self._value = value
             self.next = None
 
@@ -30,19 +19,12 @@ class ListaEncadeada:
         self.tail = None
         self._size = 0
 
-    def append(self, value):
-        """
-        Insere um valor no final da lista.
-
-        Parameters
-        ----------
-        value: O valor a ser adicionado.
-
-        """
+    def pushBack(self, value):
+        """ Insere um valor no final da lista."""
         if self.tail is None:
-            self.head = self.tail = ListaEncadeada.No(value)
+            self.head = self.tail = Deque.No(value)
         else:
-            self.tail.next = ListaEncadeada.No(value)
+            self.tail.next = Deque.No(value)
             self.tail = self.tail.next
         self._size += 1
 
