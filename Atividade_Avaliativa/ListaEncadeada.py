@@ -13,7 +13,6 @@ class ListaEncadeada:
     def __repr__(self):
         """Retorna o objeto em forma de string"""
         return "[" + str(self._cabeca) + " ]"
-        return "[" + str(self._rabo) + " ]"
         
 
     def addInicio(self, e):
@@ -25,21 +24,19 @@ class ListaEncadeada:
         else:
             novo.proximo = self._cabeca
             self._cabeca = novo
-        self.size += 1
+        self.size += 1 #incrementa o valor que já existia no size
 
+    
+    
     
     def addFinal(self, e):
         """Insere elemento no FINAL da lista"""
-        if self._cabeca is not None:
-            #inserção quando a lista já possui elementos
-            ponteiro  =  self._cabeca
-            while (ponteiro.proximo):
-                pointeiro = ponteiro.proximo
-            ponteiro.proximo = No(e)
+        if self._rabo is None:
+            self._cabeca = self._rabo = No(e)
         else:
-            #primeira inserção
-            self._cabeca = No(e)
-        self.size += 1 #incrementa o valor que já existia no size
+            self._rabo.proximo = No(e)
+            self._rabo = self._rabo.proximo
+        self.size += 1 # incrementa o valor que já existia no size
 
 
 
@@ -62,9 +59,12 @@ class ListaEncadeada:
 
 lista = ListaEncadeada()
 lista.addFinal(8)
-lista.addFinal(9)
 lista.addInicio(10)
+lista.addFinal(9)
+lista.addFinal(11)
+lista.addInicio(55)
 print("lista {}".format(lista))
 print("tamanho da lista {}".format(lista.size))
 print("primeiro elemento {}".format(lista.primeiro.dado))
 print("umtimo elemento {}".format(lista.ultimo.dado))
+#print("remove primeiro elemento da lista {}".format(lista.ultimo.dado))
