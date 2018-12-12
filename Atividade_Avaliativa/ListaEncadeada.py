@@ -9,6 +9,11 @@ class ListaEncadeada:
         self._cabeca = None
         self._rabo = None
         self.size = 0
+        self.index = 0
+
+    def dado(self):
+        """Retorna o valor do no."""
+        return self.dado
     
     def __repr__(self):
         """Retorna o objeto em forma de string"""
@@ -18,6 +23,7 @@ class ListaEncadeada:
     def addInicio(self, e):
         """Insere um valor no início da lista."""
         # Cria um novo objeto do tipo "no" recebendo valor
+        self.indice = None  # eu digo que o indice é vaziu e insiro na lista no inicio da listaencadeada
         novo = No(e)
         if self._cabeca is None:
             self._rabo = novo
@@ -26,9 +32,20 @@ class ListaEncadeada:
             self._cabeca = novo
         self.size += 1 #incrementa o valor que já existia no size
 
+    def removeInicio(self):
+        """Remove o primeiro elemento da lista."""
+        if self._cabeca is None: #verifica se a cabeca esta vazia se estive retorn none
+            return None
+        if self._cabeca is self._rabo: 
+            self._cabeca = self._rabo = None
+        else:
+            self._cabeca = self._cabeca.proximo
+        self.size -= 1
+
   
     def addFinal(self, e):
         """Insere elemento no FINAL da lista"""
+        self.indice = None  # eu digo que o indice é vaziu e insiro na lista no inicio da listaencadeada
         if self._rabo is None:
             self._cabeca = self._rabo = No(e)
         else:
@@ -36,27 +53,39 @@ class ListaEncadeada:
             self._rabo = self._rabo.proximo
         self.size += 1 # incrementa o valor que já existia no size
 
+    def removeFinal(self):
+        """Remove o ultimo elemento da lista e o retorna."""
+        if self._rabo is None:
+            return None
+        dado = self._rabo.dado 
+        if self._cabeca is self._rabo:
+            self._cabeca  = self._rabo = None
+        else:
+            aux = self._cabeca
+            while aux.proximo is not self._rabo:
+                aux = aux.proximo
+            aux.poximo = None
+            self._rabo = aux
+        self.size -= 1
+        return dado
 
-    def buscaIndice(self, e):
+
+    def buscaIndexada(self, e): #pulando 5
         aux = self._cabeca
         cont = 0
         while aux is not None:
-            if (cont % 4) == 0:
+            if (cont % 5) == 0:
                 print(aux)
             cont += 1
             aux = aux.proximo
-    
-    def __str__(self):
-        aux = self._cabeca
-        texto = "Lista: \n"
-        while aux is not None:
-            texto += str(aux)+"\n"
-            aux = aux.proximo
-        return texto
 
-
-
-    def __len__(self):
+    #    """ Retorna o indice do elemento se ele estiver na lista ou none caso contrario"""
+    #   for i in range(len(aux)):
+    #         if aux[i] == e:
+    #            return i
+    #   return None
+         
+    def tamanho(self):
         """Retorna o tamanho da lista"""
         return self.size
 
@@ -71,19 +100,29 @@ class ListaEncadeada:
         return self._rabo
 
 
- 
-
 lista = ListaEncadeada()
+
 lista.addFinal(8)
 lista.addInicio(10)
 lista.addFinal(9)
 lista.addFinal(11)
 lista.addFinal(112)
 lista.addFinal(13)
+lista.addFinal(15)
+lista.addFinal(18)
+lista.addFinal(3)
 lista.addInicio(55)
-lista.buscaIndice(3)
+lista.buscaIndexada(5)
+
+
+"""Remove elementos final e inico"""
+#lista.removeInicio()
+#lista.removeFinal()
+
 print("lista {}".format(lista))
-print("tamanho da lista {}".format(lista.size))
 print("primeiro elemento {}".format(lista.primeiro.dado))
-print("umtimo elemento {}".format(lista.ultimo.dado))
-print("busca por indice {}".format(lista))
+print("ultimo elemento {}".format(lista.ultimo.dado))
+print("tamanho da lista {}".format(lista.size))
+
+
+
