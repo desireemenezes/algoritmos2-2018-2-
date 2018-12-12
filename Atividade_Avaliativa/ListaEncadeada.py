@@ -74,10 +74,12 @@ class ListaEncadeada:
         aux = self._cabeca
         cont = 0
         while aux is not None:
-            if (cont % 5) == 0:
-                print(aux)
+            if (cont <= 5):
+                print(aux)  
             cont += 1
             aux = aux.proximo
+
+           
 
     #    """ Retorna o indice do elemento se ele estiver na lista ou none caso contrario"""
     #   for i in range(len(aux)):
@@ -85,6 +87,7 @@ class ListaEncadeada:
     #            return i
     #   return None
          
+
     def tamanho(self):
         """Retorna o tamanho da lista"""
         return self.size
